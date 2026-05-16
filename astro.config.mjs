@@ -5,5 +5,4 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
   site: 'https://lfkane2.github.io',
-  base: '/portfolio',
 });
