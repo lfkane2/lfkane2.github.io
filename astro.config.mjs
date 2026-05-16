@@ -4,5 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   integrations: [tailwind(), sitemap()],
-  site: 'https://lennart-kane.vercel.app',
+  site: 'https://lfkane2.github.io',
+  base: '/portfolio',
 });
