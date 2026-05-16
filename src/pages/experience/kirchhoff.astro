@@ -1,0 +1,42 @@
+---
+import ExperienceLayout from '../../layouts/ExperienceLayout.astro';
+---
+
+<ExperienceLayout
+  title="Research & Development Intern"
+  company="KIRCHHOFF Automotive"
+  period="Jan – Apr 2026"
+  location="Attendorn, Germany"
+  tags={["C++", "CATIA V5", "FANUC", "ABB", "Embedded Systems", "RAPID"]}
+>
+  <p class="text-lg">
+    Worked in the R&D department of a global automotive supplier, contributing across 
+    welding research, industrial robot programming, instrumentation, and material analysis.
+  </p>
+
+  <h2>Weld Data Acquisition</h2>
+  <p>
+    Designed and built a complete weld current data acquisition system using a microcontroller 
+    and Hall effect current sensor with a custom binary serial protocol. The system captures 
+    high-frequency waveforms across welds for quality analysis and failure detection.
+  </p>
+
+  <h2>Weld Failure Detection</h2>
+  <p>
+    Implemented weld failure detection algorithms in C++, integrated with weld geometry models 
+    in CATIA V5, to autonomously assess weld quality against acceptance criteria.
+  </p>
+
+  <h2>Industrial Robot Programming</h2>
+  <p>
+    Programmed FANUC and ABB industrial robots using the Teach Pendant and RAPID language 
+    to streamline weld path operations and testing procedures, resulting in an 18% reduction 
+    in labor costs for the testing workflow.
+  </p>
+
+  <h2>Camera Trigger System</h2>
+  <p>
+    Developed a camera trigger system that processes weld current waveforms with EMA filtering 
+    to detect peaks and synchronize high-speed video capture of weld events for visual inspection.
+  </p>
+</ExperienceLayout>

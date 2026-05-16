@@ -1,0 +1,69 @@
+---
+const navLinks = [
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Skills', href: '/#skills' },
+  { label: 'Projects', href: '/#projects' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/#contact' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-display text-xl text-neutral-950 hover:opacity-70 transition-opacity">
+      Lennart Kane
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-sm text-neutral-500 hover:text-neutral-950 transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden p-2 text-neutral-500 hover:text-neutral-950"
+      aria-label="Toggle menu"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <line x1="4" y1="7" x2="20" y2="7" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="17" x2="20" y2="17" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-neutral-100 px-6 pb-4">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class="block py-3 text-sm text-neutral-500 hover:text-neutral-950 transition-colors border-b border-neutral-50 last:border-0"
+      >
+        {link.label}
+      </a>
+    ))}
+  </div>
+</nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+
+  // Close mobile menu on link click
+  menu?.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+    });
+  });
+</script>

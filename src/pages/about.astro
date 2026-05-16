@@ -1,0 +1,254 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import aboutHeroImg from '../assets/images/about-hero.jpg';
+---
+
+<Layout title="About | Lennart Kane" description="About Lennart Kane — Mechatronics Engineering student, maker, and outdoor adventurer.">
+  <Nav />
+  <main class="pt-16 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="section-heading">About Me</p>
+
+      <h1 class="text-4xl md:text-5xl font-display mb-8 leading-tight">
+        Engineer, maker,<br/>and outdoor adventurer.
+      </h1>
+
+      <!-- Hero photo -->
+      <div class="aspect-[16/9] rounded-2xl bg-neutral-100 border border-neutral-200 mb-10 overflow-hidden">
+        <Image src={aboutHeroImg} alt="Lennart Kane skiing at Lake Louise" widths={[480, 800, 1400]} sizes="(max-width: 768px) 100vw, 800px" quality={85} class="w-full h-full object-cover" />
+      </div>
+
+      <div class="space-y-6 text-neutral-600 leading-relaxed">
+        <p class="text-lg">
+          I'm Lennart, a first-year Mechatronics Engineering student at the University of Waterloo 
+          with a passion for building systems that bridge mechanical design, electronics, and software.
+        </p>
+
+        <p>
+          I grew up in Calgary, Alberta and hold dual Canadian-German citizenship. I'm fluent in German, 
+          which took me to Attendorn, Germany for my first co-op at KIRCHHOFF Automotive, where I worked 
+          in R&D on everything from weld data acquisition systems to programming industrial robots.
+        </p>
+
+        <p>
+          Before university, I spent three years as the Mechanical Lead of FRC Team 4627 (Manning Robotics), 
+          leading the design and build of competition robots. Those years in the shop — machining, welding, 
+          3D printing, and iterating under deadline pressure — shaped how I approach engineering problems today.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="mt-12 pt-8 border-t border-neutral-100">
+        <h2 class="text-2xl font-display mb-6">Education</h2>
+        <div class="space-y-8">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-white border border-neutral-200">
+              <img src="/images/uwaterloo-logo.png" alt="University of Waterloo" class="w-full h-full object-contain scale-125" />
+            </div>
+            <div>
+              <h3 class="font-medium">University of Waterloo</h3>
+              <p class="text-sm text-neutral-500">Bachelor of Applied Science — Mechatronics Engineering</p>
+              <p class="text-sm text-neutral-400 font-mono mt-1">Sept 2025 – April 2030</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                {["Data Structures", "CAD", "Circuits", "Mechanics", "Digital Computation", "Materials", "Chemistry", "Mathematics"].map((course) => (
+                  <span class="px-2 py-0.5 text-xs font-mono bg-neutral-100 text-neutral-500 rounded-full">
+                    {course}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-white border border-neutral-200">
+              <img src="/images/manning-logo.jpg" alt="Ernest Manning High School" class="w-full h-full object-cover" />
+            </div>
+            <div>
+              <h3 class="font-medium">Ernest Manning High School</h3>
+              <p class="text-sm text-neutral-500">High School Diploma · Calgary, AB</p>
+              <p class="text-sm text-neutral-400 font-mono mt-1">Sept 2022 – June 2025</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                {["3.9 GPA", "3-Time Griffin Scholar", "3-Time Subject Award Winner", "3-Time Honours", "Rugby", "Swimming", "FIRST Robotics"].map((tag) => (
+                  <span class="px-2 py-0.5 text-xs font-mono bg-neutral-100 text-neutral-500 rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Adventure sections -->
+      <div class="mt-20 space-y-8">
+
+        <!-- Skiing -->
+        <div class="rounded-3xl bg-neutral-50 border border-neutral-100 p-8 md:p-10">
+          <h2 class="text-3xl font-display mb-4">Skiing</h2>
+          <p class="text-neutral-500 mb-6">
+            I grew up skiing 30+ days a year in the Canadian Rockies, competing in freeride skiing with the Ullr Big Mountain program at Lake Louise. Competition days meant hiking to exposed lines, dropping into steep chutes, and learning to commit when it counts — skills that translate surprisingly well to engineering under pressure. Outside of competition, I spent my winters touring the backcountry around Banff and Revelstoke, skinning uphill for hours to chase untracked lines and learn to read terrain, snowpack, and weather conditions. The mountains taught me to plan carefully, manage risk, and appreciate the reward on the other side of hard work.
+          </p>
+          <div class="grid grid-cols-2 gap-3" data-lightbox-group>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/skiing-1.jpg" alt="Skiing in the Rockies" class="w-full h-auto object-cover" />
+            </div>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/skiing-2.jpg" alt="Skiing at Lake Louise" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Paddling -->
+        <div class="rounded-3xl bg-neutral-50 border border-neutral-100 p-8 md:p-10">
+          <h2 class="text-3xl font-display mb-4">Paddling</h2>
+          <p class="text-neutral-500 mb-6">
+            I raced competitively in sprint canoe for over five years, earning 5 bronze, 4 silver, and 1 gold medal at the national level and representing Team Alberta at the Canada Summer Games. Training was year-round — early mornings on the water in summer and gym sessions through the winter. In my downtime, I got into repairing and maintaining the carbon fiber race boats, learning to work with composites and getting hands-on with materials that I learned about in my textbooks. Beyond racing, I spent three years coaching youth groups at the club, helping kids find their confidence on the water and fall in love with the sport. I also volunteered for four years as a paracanoe coach at the Calgary Canoe Club, working with athletes across a range of physical disabilities. Paddling taught me discipline, race-day composure, and how to push through when everything hurts. Coaching taught me how to pass that on.
+          </p>
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/images/paddling-1.jpg" alt="Canoe racing" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <!-- Cycling -->
+        <div class="rounded-3xl bg-neutral-50 border border-neutral-100 p-8 md:p-10">
+          <h2 class="text-3xl font-display mb-4">Cycling</h2>
+          <p class="text-neutral-500 mb-6">
+            Since moving to Waterloo for university, I've picked up road cycling and triathlons, finding a new way to stay competitive and scratch the endurance itch that sprint canoe left behind. I've been building up my road setup, learning bike maintenance along the way, and getting to know the riding routes around southern Ontario. Balancing hard training blocks with a mechatronics course load has been its own kind of engineering problem — learning to fit recovery around midterms, interval sessions between labs, and that sometimes the best thing you can do for a problem set is go ride for two hours and come back with a clear head.
+          </p>
+          <div class="rounded-2xl overflow-hidden">
+            <img src="/images/cycling-1.jpg" alt="Road cycling" class="w-full h-auto object-cover" />
+          </div>
+        </div>
+
+        <!-- Camping & Outdoors -->
+        <div class="rounded-3xl bg-neutral-50 border border-neutral-100 p-8 md:p-10">
+          <h2 class="text-3xl font-display mb-4">Camping & Outdoors</h2>
+          <p class="text-neutral-500 mb-6">
+            I'm happiest when I'm deep in the backcountry with nothing but what's on my back. I've done multi-day ultralight backpacking trips in remote areas, spending 5+ days at a time covering long distances through terrain that doesn't see many visitors. I obsess over gear knowledge and efficiency the same way I do with engineering projects. Whether it's a ridgeline in the Rockies, a coastal trail in Italy, or just finding a quiet spot to set up camp under the stars, I love spending time in nature and exploring what our planet has to offer. It keeps me grounded and reminds me why I build things in the first place.
+          </p>
+          <div class="grid grid-cols-2 gap-3" data-lightbox-group>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/camping-1.jpg" alt="Alpine camping by a stream" class="w-full h-auto object-cover" />
+            </div>
+            <div class="rounded-2xl overflow-hidden">
+              <img src="/images/camping-2.jpg" alt="Backpacking in the Rockies" class="w-full h-auto object-cover" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Photography -->
+      <div class="mt-20">
+        <h2 class="text-3xl font-display mb-4">Photography</h2>
+        <p class="text-neutral-500 mb-8">
+          I've always loved capturing the moments and places I experience — golden hour lighting up a ridgeline, the roar of wild animals in their natural habitat, or the quiet details of a new city. Photography lets me slow down and notice things I'd otherwise miss, and it's become a natural part of every trip and adventure. Travelling has only deepened that — I've been to over 20 countries, living in Germany, Norway, and across Canada while backpacking through Italy and exploring the South African savanna. I shoot wildlife, nature, and my favorite: sports.
+        </p>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="columns-2 md:columns-3 lg:columns-4 gap-3" data-lightbox-group>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[3/4]">
+            <img src="/images/photo-1.jpg" alt="Photography 1" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/3]">
+            <img src="/images/photo-2.jpg" alt="Photography 2" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[1/1]">
+            <img src="/images/photo-3.jpg" alt="Photography 3" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/5]">
+            <img src="/images/photo-4.jpg" alt="Photography 4" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[3/2]">
+            <img src="/images/photo-5.jpg" alt="Photography 5" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[2/3]">
+            <img src="/images/photo-6.jpg" alt="Photography 6" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/3]">
+            <img src="/images/photo-7.jpg" alt="Photography 7" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[3/4]">
+            <img src="/images/photo-8.jpg" alt="Photography 8" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/3]">
+            <img src="/images/photo-9.jpg" alt="Photography 9" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[1/1]">
+            <img src="/images/photo-10.jpg" alt="Photography 10" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[3/4]">
+            <img src="/images/photo-11.jpg" alt="Photography 11" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/3]">
+            <img src="/images/photo-12.jpg" alt="Photography 12" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[3/2]">
+            <img src="/images/photo-13.jpg" alt="Photography 13" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[2/3]">
+            <img src="/images/photo-14.jpg" alt="Photography 14" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[4/5]">
+            <img src="/images/photo-15.jpg" alt="Photography 15" class="w-full h-full object-cover" />
+          </div>
+        </div>
+        <div class="mb-3 rounded-xl bg-neutral-100 border border-neutral-200 overflow-hidden">
+          <div class="aspect-[1/1]">
+            <img src="/images/photo-16.jpg" alt="Photography 16" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- CTA -->
+      <div class="mt-16 pt-10 border-t border-neutral-100 text-center">
+        <p class="text-neutral-400 mb-4">Interested in working together?</p>
+        <a href="/#contact" class="btn-primary">
+          Get in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

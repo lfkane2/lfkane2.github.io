@@ -1,0 +1,66 @@
+---
+import Layout from './Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  company: string;
+  period: string;
+  location: string;
+  tags: string[];
+}
+
+const { title, company, period, location, tags } = Astro.props;
+---
+
+<Layout title={`${title} at ${company} | Lennart Kane`}>
+  <Nav />
+  <main class="pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <a href="/#experience" class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-8">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to experience
+      </a>
+
+      <div class="mb-10">
+        <h1 class="text-4xl md:text-5xl font-display mb-2">{title}</h1>
+        <p class="text-lg text-neutral-400 mb-4">{company}</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-sm font-mono text-neutral-500">{period}</span>
+          <span class="text-neutral-200">·</span>
+          <span class="text-sm font-mono text-neutral-500">{location}</span>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-4">
+          {tags.map((tag) => (
+            <span class="px-2 py-0.5 text-xs font-mono bg-neutral-100 text-neutral-500 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div class="prose-custom space-y-6 text-neutral-600 leading-relaxed [&_h2]:text-2xl [&_h2]:font-display [&_h2]:text-neutral-950 [&_h2]:pt-4 [&_h2]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-neutral-600 [&_strong]:text-neutral-800">
+        <slot />
+      </div>
+
+      <div class="mt-16 pt-10 border-t border-neutral-100 flex justify-between">
+        <a href="/#experience" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          All Experience
+        </a>
+        <a href="/#contact" class="btn-primary">
+          Get in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

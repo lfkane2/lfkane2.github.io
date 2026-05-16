@@ -1,0 +1,49 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="Farm Irrigation System"
+  subtitle="Automated Distributed Sensor Network"
+  date="April 2026 – Present"
+  tags={["ESP32", "LoRa", "Raspberry Pi", "Solar Power"]}
+  heroImage="/images/irrigation.jpg"
+  gallery={[
+    /* Add more photos/videos here */
+  ]}
+>
+  <p class="text-lg">
+    A solar-powered, wireless sensor network for automated farm irrigation. Remote sensor nodes 
+    monitor soil moisture and environmental conditions, transmitting data over LoRa radio to a 
+    central hub for monitoring and watering control.
+  </p>
+
+  <h2>System Architecture</h2>
+  <p>
+    The system uses a hub-and-spoke topology. Multiple remote sensor nodes communicate with 
+    a centralized Raspberry Pi hub over long-range LoRa radio (433 MHz, SX1278 modules), 
+    providing coverage across large agricultural areas without Wi-Fi infrastructure.
+  </p>
+
+  <h2>Sensor Nodes</h2>
+  <p>
+    Each node is built around an ESP32 microcontroller paired with capacitive soil moisture 
+    sensors and DHT22 temperature/humidity sensors. Nodes are solar-powered using small panels 
+    with TP4056 charge controllers and LiPo batteries for off-grid, maintenance-free operation.
+  </p>
+
+  <h2>Central Hub</h2>
+  <p>
+    The Raspberry Pi hub receives sensor data, stores it in a time-series database, and serves 
+    a Grafana web dashboard for real-time monitoring and historical analysis. Remote access is 
+    enabled through Tailscale, allowing management from anywhere.
+  </p>
+
+  <h2>Key Features</h2>
+  <ul>
+    <li><strong>Off-grid operation</strong> — solar powered with battery backup on each node</li>
+    <li><strong>Long-range wireless</strong> — LoRa radio for km-range communication without Wi-Fi</li>
+    <li><strong>Web dashboard</strong> — Grafana visualization with remote access via Tailscale</li>
+    <li><strong>Automated control</strong> — threshold-based watering triggers from sensor readings</li>
+  </ul>
+</ProjectLayout>

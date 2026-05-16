@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" fill="none">
+  <!-- Shield shape - navy background -->
+  <path d="M60 2L10 25V85C10 105 35 130 60 138C85 130 110 105 110 85V25L60 2Z" fill="#1B2A4A"/>
+  <path d="M60 2L10 25V85C10 105 35 130 60 138C85 130 110 105 110 85V25L60 2Z" stroke="#D4A843" stroke-width="3"/>
+  <!-- Inner border -->
+  <path d="M60 10L18 30V83C18 100 39 122 60 130C81 122 102 100 102 83V30L60 10Z" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+  <!-- Griffin silhouette (simplified heraldic griffin) -->
+  <g transform="translate(32, 30)" fill="#D4A843">
+    <!-- Body -->
+    <path d="M28 65C22 65 16 60 14 55L10 45C8 40 10 35 14 32L20 28C20 28 18 22 20 18C22 14 26 12 30 12L34 14C36 10 40 6 44 8C48 10 48 16 46 20L42 24C44 26 46 30 44 34L40 40C42 44 44 48 44 52C44 58 38 65 28 65Z"/>
+    <!-- Wing -->
+    <path d="M22 28L12 16L8 8C8 8 14 12 18 14L26 20L22 28Z"/>
+    <path d="M18 24L10 14L6 6C6 6 10 10 16 14L22 22L18 24Z" fill="#E8C36A"/>
+    <!-- Beak -->
+    <path d="M44 8L52 4L48 10L44 8Z"/>
+    <!-- Eye -->
+    <circle cx="42" cy="12" r="2" fill="#1B2A4A"/>
+    <!-- Talons -->
+    <path d="M14 55L8 62L12 58L16 64L18 58" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+    <path d="M34 60L30 68L34 64L38 70L40 62" stroke="#D4A843" stroke-width="1.5" fill="none"/>
+    <!-- Tail -->
+    <path d="M28 65C28 65 24 72 20 75C16 78 22 76 26 73C30 70 28 65 28 65Z"/>
+  </g>
+  <!-- Banner text EM -->
+  <text x="60" y="125" text-anchor="middle" font-family="serif" font-weight="bold" font-size="18" fill="#D4A843">EM</text>
+</svg>

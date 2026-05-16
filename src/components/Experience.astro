@@ -1,0 +1,106 @@
+---
+const experiences = [
+  {
+    title: "Research & Development Intern",
+    company: "KIRCHHOFF Automotive",
+    period: "Jan – Apr 2026",
+    location: "Attendorn, Germany",
+    featured: true,
+    description: "Designed weld data acquisition systems, programmed FANUC & ABB industrial robots, and developed weld failure detection algorithms in a high-volume manufacturing R&D environment.",
+    tags: ["C++", "CATIA V5", "FANUC", "ABB", "Embedded Systems"],
+    link: "/experience/kirchhoff",
+  },
+  {
+    title: "Mechanical Lead",
+    company: "Manning Robotics – FRC 4627",
+    period: "Sept 2022 – Aug 2025",
+    location: "Calgary, AB",
+    featured: false,
+    description: "Led mechanical design across 3 seasons and 5 regional competitions. Won Excellence in Engineering (2024) and Autonomous Award (2023).",
+    tags: ["SolidWorks", "Machining", "Welding", "3D Printing"],
+    link: "/experience/manning-robotics",
+  },
+  {
+    title: "Sales Associate",
+    company: "Sporting Life",
+    period: "Jan – Aug 2025",
+    location: "Calgary, AB",
+    featured: false,
+    description: "Consistently sold $500+ per shift across ski, cycling, and outdoor departments through technical expertise and customer engagement.",
+    tags: ["Customer Relations", "Technical Sales"],
+    link: "/experience/sporting-life",
+  },
+  {
+    title: "Volunteer Paracanoe Coach",
+    company: "Calgary Canoe Club",
+    period: "2020 – 2024",
+    location: "Calgary, AB",
+    featured: false,
+    description: "Coached 10+ paracanoe athletes, adapting training programs and equipment for a range of physical disabilities.",
+    tags: ["Coaching", "Accessibility", "Athletics"],
+    link: "/experience/paracanoe-coach",
+  },
+];
+
+const featured = experiences.find((e) => e.featured);
+const past = experiences.filter((e) => !e.featured);
+---
+
+<section id="experience" class="py-16">
+  <div class="max-w-6xl mx-auto px-6">
+    <p class="section-heading animate-on-scroll">Experience</p>
+
+    <!-- Featured role -->
+    {featured && (
+      <div class="card-featured p-8 md:p-10 mb-6 animate-on-scroll">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+          <div>
+            <span class="inline-block text-xs font-mono uppercase tracking-wider text-neutral-400 mb-2">Most Recent</span>
+            <h3 class="text-2xl md:text-3xl font-display">{featured.title}</h3>
+            <p class="text-neutral-400 mt-1">{featured.company}</p>
+          </div>
+          <div class="text-sm text-neutral-500 font-mono md:text-right shrink-0">
+            <div>{featured.period}</div>
+            <div>{featured.location}</div>
+          </div>
+        </div>
+        <p class="text-neutral-300 leading-relaxed max-w-2xl mb-6">{featured.description}</p>
+        <div class="flex flex-wrap gap-2 mb-6">
+          {featured.tags.map((tag) => (
+            <span class="px-3 py-1 text-xs font-mono bg-white/10 text-neutral-300 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <a href={featured.link} class="inline-flex items-center gap-2 text-sm text-white hover:gap-3 transition-all">
+          See details
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    )}
+
+    <!-- Past roles -->
+    <div class="grid md:grid-cols-3 gap-4">
+      {past.map((exp, i) => (
+        <a href={exp.link} class="card p-6 group animate-on-scroll" style={`animation-delay: ${i * 100}ms`}>
+          {i === 0 && (
+            <span class="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3 block">Past</span>
+          )}
+          <h3 class="text-lg font-medium mb-1 group-hover:text-neutral-700 transition-colors">{exp.title}</h3>
+          <p class="text-sm text-neutral-400 mb-3">{exp.company}</p>
+          <p class="text-sm text-neutral-500 leading-relaxed mb-4">{exp.description}</p>
+          <div class="flex flex-wrap gap-1.5 mb-4">
+            {exp.tags.slice(0, 3).map((tag) => (
+              <span class="px-2 py-0.5 text-xs font-mono bg-neutral-100 text-neutral-500 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <span class="text-xs text-neutral-400 font-mono">{exp.period} · {exp.location}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,102 @@
+---
+import { Image } from 'astro:assets';
+import Layout from './Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  subtitle: string;
+  date: string;
+  tags: string[];
+  heroImage: string;
+  description?: string;
+  gallery?: { src: string; alt: string; type?: string }[];
+}
+
+const { title, subtitle, date, tags, heroImage, description, gallery = [] } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/*.{jpg,png}', { eager: true });
+const heroSrc = images[`../assets/images/${heroImage.replace('/images/', '')}`]?.default;
+---
+
+<Layout title={`${title} | Lennart Kane`} description={description || subtitle}>
+  <Nav />
+  <main class="pt-24 pb-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <a href="/#projects" class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-8">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to projects
+      </a>
+
+      <div class="mb-10">
+        <h1 class="text-4xl md:text-5xl font-display mb-2">{title}</h1>
+        <p class="text-lg text-neutral-400 mb-4">{subtitle}</p>
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="text-sm font-mono text-neutral-500">{date}</span>
+          <span class="text-neutral-200">·</span>
+          {tags.map((tag) => (
+            <span class="px-2 py-0.5 text-xs font-mono bg-neutral-100 text-neutral-500 rounded-full">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Hero image -->
+      <div class="rounded-2xl bg-neutral-100 border border-neutral-200 mb-10 overflow-hidden">
+        {heroSrc ? (
+          <Image src={heroSrc} alt={title} widths={[480, 800, 1400]} sizes="(max-width: 768px) 100vw, 800px" quality={85} class="w-full h-auto" />
+        ) : (
+          <img src={heroImage} alt={title} class="w-full h-auto" />
+        )}
+      </div>
+
+      <!-- Written content -->
+      <div class="prose-custom space-y-6 text-neutral-600 leading-relaxed [&_h2]:text-2xl [&_h2]:font-display [&_h2]:text-neutral-950 [&_h2]:pt-4 [&_h2]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-neutral-600 [&_strong]:text-neutral-800">
+        <slot />
+      </div>
+
+      <!-- Photo & Video Gallery -->
+      {gallery.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-neutral-100">
+          <h2 class="text-2xl font-display mb-6">Gallery</h2>
+          <div class="grid grid-cols-2 gap-3">
+            {gallery.map((item) => (
+              <div class={`rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 ${item.type === 'video' ? 'col-span-2' : ''}`}>
+                {item.type === 'video' ? (
+                  <div class="aspect-video">
+                    <iframe src={item.src} title={item.alt} class="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                ) : (
+                  <div class="aspect-[4/3]">
+                    <img src={item.src} alt={item.alt} class="w-full h-full object-cover" />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Navigation -->
+      <div class="mt-16 pt-10 border-t border-neutral-100 flex justify-between">
+        <a href="/#projects" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          All Projects
+        </a>
+        <a href="/#contact" class="btn-primary">
+          Get in Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,33 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="WeldLogger"
+  subtitle="Weld Current Data Acquisition System"
+  date="Jan – Apr 2026"
+  tags={["C++", "Embedded Systems", "Signal Processing"]}
+  heroImage="/images/weldtrigger.jpg"
+>
+  <p class="text-lg">
+    A custom data acquisition system designed to capture, log, and analyze weld current
+    waveforms in real time.
+  </p>
+
+  <h2>Overview</h2>
+  <p>
+    The system uses a microcontroller paired with a current sensor to capture high-frequency
+    weld data during production. Alongside the electrical data, synchronized high-speed video
+    was captured to visually document weld events. All captured data is transferred to a host
+    machine for real-time monitoring and logging.
+  </p>
+
+  <p>
+    A companion analysis tool provides waveform visualization, filtering, peak detection,
+    and reporting capabilities to support weld quality assessment.
+  </p>
+
+  <p class="text-sm text-neutral-400 italic border-l-2 border-neutral-200 pl-4 mt-8">
+    Note: Detailed implementation specifics are not disclosed due to NDA.
+  </p>
+</ProjectLayout>

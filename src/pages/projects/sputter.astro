@@ -1,0 +1,67 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+---
+
+<ProjectLayout
+  title="Sputter"
+  subtitle="Autonomous Pancake-Making Robot"
+  date="November 2025"
+  tags={["SolidWorks", "C++", "3D Printing", "Pneumatics"]}
+  heroImage="/images/sputter.jpg"
+  gallery={[
+    /* Add more photos/videos here like:
+    { src: "/images/sputter-cad.jpg", alt: "SolidWorks CAD model" },
+    { src: "/images/sputter-cooking.jpg", alt: "Sputter cooking a pancake" },
+    { src: "https://www.youtube.com/embed/VIDEO_ID", alt: "Sputter demo video", type: "video" },
+    */
+  ]}
+>
+  <p class="text-lg">
+    Sputter is a fully autonomous pancake-making robot designed and built in a 4-person team. 
+    It handles the complete process — dispensing batter, cooking, flipping, and plating — 
+    achieving 92% end-to-end consistency.
+  </p>
+
+  <h2>The Challenge</h2>
+  <p>
+    The goal was to build a robot that could autonomously produce pancakes from raw batter 
+    to a plated finished product with no human intervention. This required solving problems 
+    across mechanical design, fluid delivery, motion control, and heat management.
+  </p>
+
+  <h2>Pneumatic Batter Delivery</h2>
+  <p>
+    One of the trickiest problems was reliably dispensing viscous batter. We developed a pneumatic 
+    pressure system using a custom-designed 2L bottle cap with O-ring sealing and a regulated 
+    20 psi air supply. This gave us consistent, controllable batter flow without the issues 
+    of peristaltic or gravity-fed systems.
+  </p>
+
+  <h2>Mechanical Design</h2>
+  <p>
+    The robot is built on a fully custom PLA frame with a 3-axis Cartesian gantry, all modeled 
+    in SolidWorks and 3D printed. The design prioritized rigidity, modularity, and rapid iteration — 
+    we went through several frame revisions during development.
+  </p>
+  <p>
+    A Geneva mechanism handles the cooking station rotation, providing precise indexing between 
+    the dispensing, cooking, flipping, and plating positions.
+  </p>
+
+  <h2>Results</h2>
+  <ul>
+    <li><strong>92% consistency rate</strong> across multiple test runs</li>
+    <li>Fully autonomous operation from batter to plate</li>
+    <li>Custom pneumatic, mechanical, and control systems</li>
+    <li>Designed and fabricated in under 4 weeks</li>
+  </ul>
+
+  <div class="mt-8">
+    <a href="/Sputter_Final_Report.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">
+      View Full Report
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M7 17l9.2-9.2M17 17V8H8"/>
+      </svg>
+    </a>
+  </div>
+</ProjectLayout>
