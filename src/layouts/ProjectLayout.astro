@@ -66,9 +66,15 @@ const heroSrc = images[`../assets/images/${heroImage.replace('/images/', '')}`]?
           <div class="grid grid-cols-2 gap-3">
             {gallery.map((item) => (
               <div class={`rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 ${item.type === 'video' ? 'col-span-2' : ''}`}>
-                {item.type === 'video' ? (
+                {item.type === 'video' && item.src.includes('youtube') ? (
                   <div class="aspect-video">
                     <iframe src={item.src} title={item.alt} class="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+                ) : item.type === 'video' ? (
+                  <div class="aspect-video">
+                    <video src={item.src} controls class="w-full h-full object-contain bg-black" preload="metadata">
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 ) : (
                   <div class="aspect-[4/3]">

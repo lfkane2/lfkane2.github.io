@@ -9,9 +9,10 @@ interface Props {
   period: string;
   location: string;
   tags: string[];
+  heroImage?: string;
 }
 
-const { title, company, period, location, tags } = Astro.props;
+const { title, company, period, location, tags, heroImage } = Astro.props;
 ---
 
 <Layout title={`${title} at ${company} | Lennart Kane`}>
@@ -41,6 +42,12 @@ const { title, company, period, location, tags } = Astro.props;
           ))}
         </div>
       </div>
+
+      {heroImage && (
+        <div class="rounded-2xl bg-neutral-100 border border-neutral-200 mb-10 overflow-hidden">
+          <img src={heroImage} alt={`${title} at ${company}`} class="w-full h-auto" />
+        </div>
+      )}
 
       <div class="prose-custom space-y-6 text-neutral-600 leading-relaxed [&_h2]:text-2xl [&_h2]:font-display [&_h2]:text-neutral-950 [&_h2]:pt-4 [&_h2]:mb-4 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-2 [&_li]:text-neutral-600 [&_strong]:text-neutral-800">
         <slot />
