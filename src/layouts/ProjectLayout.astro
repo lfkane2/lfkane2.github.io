@@ -9,15 +9,16 @@ interface Props {
   subtitle: string;
   date: string;
   tags: string[];
-  heroImage: string;
+  heroImage?: string;
+  heroVideo?: string;
   description?: string;
   gallery?: { src: string; alt: string; type?: string }[];
 }
 
-const { title, subtitle, date, tags, heroImage, description, gallery = [] } = Astro.props;
+const { title, subtitle, date, tags, heroImage, heroVideo, description, gallery = [] } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/images/*.{jpg,png}', { eager: true });
-const heroSrc = images[`../assets/images/${heroImage.replace('/images/', '')}`]?.default;
+const heroSrc = heroImage ? images[`../assets/images/${heroImage.replace('/images/', '')}`]?.default : undefined;
 ---
 
 <Layout title={`${title} | Lennart Kane`} description={description || subtitle}>
@@ -45,9 +46,15 @@ const heroSrc = images[`../assets/images/${heroImage.replace('/images/', '')}`]?
         </div>
       </div>
 
-      <!-- Hero image -->
+      <!-- Hero image or video -->
       <div class="rounded-2xl bg-neutral-100 border border-neutral-200 mb-10 overflow-hidden">
-        {heroSrc ? (
+        {heroVideo ? (
+          <div class="aspect-video">
+            <video src={heroVideo} controls class="w-full h-full object-contain bg-black" preload="metadata">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        ) : heroSrc ? (
           <Image src={heroSrc} alt={title} widths={[480, 800, 1400]} sizes="(max-width: 768px) 100vw, 800px" quality={85} class="w-full h-auto" />
         ) : (
           <img src={heroImage} alt={title} class="w-full h-auto" />
