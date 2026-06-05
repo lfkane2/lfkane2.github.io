@@ -72,7 +72,7 @@ const heroSrc = heroImage ? images[`../assets/images/${heroImage.replace('/image
           <h2 class="text-2xl font-display mb-6">Gallery</h2>
           <div class="grid grid-cols-2 gap-3">
             {gallery.map((item) => (
-              <div class={`rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 ${item.type === 'video' ? 'col-span-2' : ''}`}>
+              <div class="rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200">
                 {item.type === 'video' && item.src.includes('youtube') ? (
                   <div class="aspect-video">
                     <iframe src={item.src} title={item.alt} class="w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
